@@ -1,16 +1,10 @@
 @import './../../../util/constantes.scss';
 
-// tab{
-//     div{
-//         min-height: 100px;
-//     }
-//     .div-1{
-//         background: green;
-//     }
-//     .div-2{
-//         background: red;
-//     }
+// .Navbar {
+//     color: rgb(9, 35, 184);
+//     display: none;
 // }
+
 .div-1{
     min-height: 100px;
     background: green;
@@ -20,26 +14,20 @@
     background: red;
 }
 
-@media (max-width: 767px) {
-    // .device-big {
-    // display: none;
-    // }
-    // .device-small {
-    .nav-tabs {
-    display: inline-flex;
+@media (max-width: $md_size - 1) {
+    .Navbar {
+        display: inline;
+    }
+
+    .TabPanel {
+        display: none;
+        &.TabAtiva{
+            display: inline;
+        }
     }
 }
-/* big device */
-@media only screen and (min-width : 768px) {
-    // .device-big, .tab-content > .tab-pane {
-    .tab-content .tab-pane {
-    display: inline;
-    }
-    // .device-small {
-    .nav-tabs {
-    display: none;
-    }
-    .tab-pane {
-        display: inline;
+@media only screen and (min-width : $md_size) {
+    .Navbar {
+        display: none;
     }
 }
