@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Parlamentar from './Parlamentar/Parlamentar.js';
 
+import './Dashboard.scss'
 
 class Dashboard extends Component{
 
@@ -24,7 +25,7 @@ class Dashboard extends Component{
         return(
             <div>
                 <h3>Dashboard</h3>
-                <section>
+                <section className="ListaParlamentars">
                     {this.state.senadors.map(parlamentar => {
                         return <Parlamentar 
                             key={parlamentar.IdentificacaoParlamentar.CodigoParlamentar} 

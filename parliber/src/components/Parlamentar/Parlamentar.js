@@ -1,8 +1,9 @@
 import React from 'react';
 
+import './Parlamentar.scss'
 
 const parlamentar = (props) => (
-    <article >
+    <article className="Parlamentar">
         <h1>{props.nome}</h1>
         <div >{props.partido}</div>
         <div >{props.uf}</div>
