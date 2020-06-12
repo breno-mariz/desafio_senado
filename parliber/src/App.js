@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <h3>App</h3>
       <Dashboard/>
+      <br/>
     </div>
   );
 }

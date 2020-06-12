@@ -1,13 +1,24 @@
 .Parlamentar {
-    width: 250px;
     padding: 16px;
-    text-align: center;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    margin: 10px;
-    box-sizing: border-box;
-    cursor: pointer;
+    text-align: left;
+    // cursor: pointer;
     &:hover{
-        background-color: #C0DDF5;
+        background-color: rgb(201, 216, 248);
+    }
+}
+
+.circletag {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #ddd9d2;//#E6E7ED;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+        max-height: 100%;
+        max-width: 100%;
     }
 }

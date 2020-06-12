@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Parlamentar from './Parlamentar/Parlamentar.js';
 
+import ListGroup from 'react-bootstrap/ListGroup'
 import './Dashboard.scss'
 
 class Dashboard extends Component{
@@ -25,16 +26,21 @@ class Dashboard extends Component{
         return(
             <div>
                 <h3>Dashboard</h3>
-                <section className="ListaParlamentars">
+                <ListGroup >
                     {this.state.senadors.map(parlamentar => {
-                        return <Parlamentar 
-                            key={parlamentar.IdentificacaoParlamentar.CodigoParlamentar} 
-                            nome={parlamentar.IdentificacaoParlamentar.NomeParlamentar} 
-                            partido={parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar}
-                            uf={parlamentar.IdentificacaoParlamentar.UfParlamentar}/>;
-                        })
-                    }
-                </section>
+                        return (
+                            <ListGroup.Item>
+                                <Parlamentar 
+                                    key={parlamentar.IdentificacaoParlamentar.CodigoParlamentar} 
+                                    nome={parlamentar.IdentificacaoParlamentar.NomeParlamentar} 
+                                    partido={parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar}
+                                    formaTratamento={parlamentar.IdentificacaoParlamentar.FormaTratamento}
+                                    uf={parlamentar.IdentificacaoParlamentar.UfParlamentar}
+                                    foto={parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar}/>
+                            </ListGroup.Item>
+                        )
+                    })}
+                </ListGroup>
             </div>
         )
     }
