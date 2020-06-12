@@ -1,0 +1,45 @@
+@import './../../../util/constantes.scss';
+
+// tab{
+//     div{
+//         min-height: 100px;
+//     }
+//     .div-1{
+//         background: green;
+//     }
+//     .div-2{
+//         background: red;
+//     }
+// }
+.div-1{
+    min-height: 100px;
+    background: green;
+}
+.div-2{
+    min-height: 100px;
+    background: red;
+}
+
+@media (max-width: 767px) {
+    // .device-big {
+    // display: none;
+    // }
+    // .device-small {
+    .nav-tabs {
+    display: inline-flex;
+    }
+}
+/* big device */
+@media only screen and (min-width : 768px) {
+    // .device-big, .tab-content > .tab-pane {
+    .tab-content .tab-pane {
+    display: inline;
+    }
+    // .device-small {
+    .nav-tabs {
+    display: none;
+    }
+    .tab-pane {
+        display: inline;
+    }
+}

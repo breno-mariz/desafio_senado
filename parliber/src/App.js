@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.scss';
 import Dashboard from './components/Dashboard';
+import BaseUi from './components/ui/BaseUi';
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
-      <h3>App</h3>
-      <Dashboard/>
-      <br/>
+      <BaseUi>
+        {/* <Dashboard/> */}
+      </BaseUi>
     </div>
   );
-}
+};
 
 export default App;

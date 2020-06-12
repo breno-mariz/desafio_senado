@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Parlamentar from './Parlamentar/Parlamentar.js';
 
-import ListGroup from 'react-bootstrap/ListGroup'
+// import ListGroup from 'react-bootstrap/ListGroup'
 import './Dashboard.scss'
 
 class Dashboard extends Component{
@@ -26,21 +26,19 @@ class Dashboard extends Component{
         return(
             <div>
                 <h3>Dashboard</h3>
-                <ListGroup >
+                <section className="ListaParlamentars">
                     {this.state.senadors.map(parlamentar => {
                         return (
-                            <ListGroup.Item>
-                                <Parlamentar 
-                                    key={parlamentar.IdentificacaoParlamentar.CodigoParlamentar} 
-                                    nome={parlamentar.IdentificacaoParlamentar.NomeParlamentar} 
-                                    partido={parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar}
-                                    formaTratamento={parlamentar.IdentificacaoParlamentar.FormaTratamento}
-                                    uf={parlamentar.IdentificacaoParlamentar.UfParlamentar}
-                                    foto={parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar}/>
-                            </ListGroup.Item>
+                            <Parlamentar 
+                                key={parlamentar.IdentificacaoParlamentar.CodigoParlamentar} 
+                                nome={parlamentar.IdentificacaoParlamentar.NomeParlamentar} 
+                                partido={parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar}
+                                formaTratamento={parlamentar.IdentificacaoParlamentar.FormaTratamento}
+                                uf={parlamentar.IdentificacaoParlamentar.UfParlamentar}
+                                foto={parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar}/>
                         )
                     })}
-                </ListGroup>
+                </section>
             </div>
         )
     }
