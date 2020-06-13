@@ -1,0 +1,14 @@
+@mixin mix_imagemCortada($cor, $tamanho) {
+    width: $tamanho;
+    height: $tamanho;
+    background: $cor;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    // border-radius: 50%;
+    overflow: hidden;
+    img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+}

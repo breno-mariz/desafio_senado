@@ -1,29 +1,22 @@
+@import './../../util/constantes.scss';
+@import './../../util/styleUtil.scss';
+
 .Parlamentar {
     padding: 4px;
     text-align: left;
     // width: 100%;
     // cursor: pointer;
     &:hover{
-        background-color: rgb(232, 237, 250);
+        // transition: 1s;
+        background: $corCinza_1;
     }
     .Nome{
         font-weight: bold;
         font-size: 150%;
     }
-}
 
-.circletag {
-    // display: block;
-    width: 80px;
-    height: 80px;
-    background: #ddd9d2;//#E6E7ED;
-    text-align: center;
-    align-content: center;
-    align-items: center;
-    border-radius: 50%;
-    overflow: hidden;
-    img {
-        max-height: 100%;
-        max-width: 100%;
+    .FotoListagem {
+        border-radius: 50%;
+        @include mix_imagemCortada($corFundoParlam, 80px);
     }
 }

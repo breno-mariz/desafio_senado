@@ -8,10 +8,10 @@ import Container from 'react-bootstrap/Container'
 const parlamentar = (props) => {
 
     return (
-        <Container className="Parlamentar" onClick={props.clickHandler}>
+        <Container fluid className="Parlamentar" onClick={props.clickHandler}>
             <Row>
                 <Col xs="auto">
-                    <div className="circletag" ><img src={props.foto}/></div>
+                    <div className="FotoListagem" ><img src={props.foto}/></div>
                 </Col>
                 <Col >
                     <div className="Nome">{props.nome}</div>
