@@ -1,5 +1,5 @@
 import React from 'react';
-import ListaParlamentar from '../../Parlamentar/ListaParlamentar';
+import ListaSenador from '../../Parlamentar/ListaSenador';
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -25,13 +25,13 @@ const NavContent = ( props ) => {
                 <Col xs={12} md={6} className={tabPanelClass['senadorTab'].join(' ')} id="senadorTabPanel">
                     <div className="div-1">
                         div 1
-                        <ListaParlamentar/>
+                        <ListaSenador/>
                     </div>
                 </Col>
                 <Col xs={12} md={6} className={tabPanelClass['deputadoTab'].join(' ')} id="deputadoTabPanel">
                     <div className="div-2">
                         div 2
-                        <ListaParlamentar/>
+                        <ListaSenador/>
                     </div>
                 </Col>
             </Row>

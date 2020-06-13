@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Parlamentar from './Parlamentar.js';
 import ParlamentarDetalhe from './ParlamentarDetalhe';
-import Loader from './../ui/loader/Loader';
+import Loader from '../ui/loader/Loader';
 
 // import ListGroup from 'react-bootstrap/ListGroup'
 import './ListaParlamentar.scss'
 
-class ListaParlamentar extends Component{
+class ListaSenador extends Component{
 
     state = {
         senadors: [],
@@ -77,4 +77,4 @@ class ListaParlamentar extends Component{
 
 }
 
-export default ListaParlamentar;
+export default ListaSenador;
