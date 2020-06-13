@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Parlamentar from './Parlamentar.js';
-import ParlamentarDetalhe from './ParlamentarDetalhe';
 import Loader from '../ui/loader/Loader';
 
 // import ListGroup from 'react-bootstrap/ListGroup'
 import './ListaParlamentar.scss'
+
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
 
 class ListaSenador extends Component{
 
@@ -37,8 +40,10 @@ class ListaSenador extends Component{
     exibirDetalhe = (chave) => {
         this.setExibirDetalhe(true);
 
-        this.setState( { chaveParlamentarSelecionado: chave } );
+        // this.setState( { chaveParlamentarSelecionado: chave } );
+        this.props.history.push( '/senador/' + chave );
     }
+
 
     render () {
         let objetoLista = null;
@@ -46,7 +51,7 @@ class ListaSenador extends Component{
             objetoLista = <Loader/>;
         } else {
             objetoLista = (
-                <section className="ListaParlamentar">
+                <section >
                     {this.state.senadors.map(parlamentar => {
                         return (
                             <Parlamentar  clickHandler={() => this.exibirDetalhe(parlamentar.IdentificacaoParlamentar.CodigoParlamentar)}
@@ -55,7 +60,8 @@ class ListaSenador extends Component{
                                 partido={parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar}
                                 formaTratamento={parlamentar.IdentificacaoParlamentar.FormaTratamento}
                                 uf={parlamentar.IdentificacaoParlamentar.UfParlamentar}
-                                foto={parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar}/>
+                                foto={parlamentar.IdentificacaoParlamentar.UrlFotoParlamentar}
+                                />
                         )
                     })}
                 </section>
@@ -63,15 +69,24 @@ class ListaSenador extends Component{
         }
 
         return(
-            <div>
-                <h3>Lista Senadores</h3>
-                <ParlamentarDetalhe 
-                    show={this.state.exibirDetalhe} 
-                    onHide={() => this.setExibirDetalhe(false)}
-                    CodigoParlamentar={this.state.chaveParlamentarSelecionado}/>
-                
-                {objetoLista}
-            </div>
+            
+            <Container className="Senador">
+                <Row className="justify-content-md-center">
+                    <Col sm={12} lg={3} >
+                        <div className="Filtro ListPanel">
+                            <div className="Titulo">Painel filtros</div>
+                            <br/>
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="ListaParlamentar ListPanel">
+                            <div className="Titulo">Lista Senadores</div>
+                            <br/>
+                            {objetoLista}
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 

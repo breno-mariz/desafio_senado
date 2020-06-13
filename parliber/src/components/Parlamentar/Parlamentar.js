@@ -11,7 +11,7 @@ const parlamentar = (props) => {
         <Container fluid className="Parlamentar" onClick={props.clickHandler}>
             <Row>
                 <Col xs="auto">
-                    <div className="FotoListagem" ><img src={props.foto}/></div>
+                    <div className="FotoListagem" ><img src={props.foto} onerror={()=>this.src='default-profile.png'} alt="Imagem"/></div>
                 </Col>
                 <Col >
                     <div className="Nome">{props.nome}</div>

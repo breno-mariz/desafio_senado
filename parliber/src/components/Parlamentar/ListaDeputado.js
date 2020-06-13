@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Parlamentar from './Parlamentar.js';
-import ParlamentarDetalhe from './ParlamentarDetalhe';
 import Loader from '../ui/loader/Loader';
 
 // import ListGroup from 'react-bootstrap/ListGroup'
 import './ListaParlamentar.scss'
+
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
 
 class ListaDeputado extends Component{
 
@@ -46,7 +49,7 @@ class ListaDeputado extends Component{
             objetoLista = <Loader/>;
         } else {
             objetoLista = (
-                <section className="ListaParlamentar">
+                <section>
                     {this.state.deputados.map(deputado => {
                         return (
                             <Parlamentar  clickHandler={() => this.exibirDetalhe(deputado.id)}
@@ -65,15 +68,23 @@ class ListaDeputado extends Component{
         console.log('meio', this.state.deputados[0]);
 
         return(
-            <div>
-                <h3>Lista Deputados</h3>
-                <ParlamentarDetalhe 
-                    show={this.state.exibirDetalhe} 
-                    onHide={() => this.setExibirDetalhe(false)}
-                    CodigoParlamentar={this.state.chaveParlamentarSelecionado}/>
-                
-                {objetoLista}
-            </div>
+            <Container className="Deputado">
+                <Row className="justify-content-md-center">
+                    <Col sm={12} lg={3} >
+                        <div className="Filtro ListPanel">
+                            <div className="Titulo">Painel filtros</div>
+                            <br/>
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="ListaParlamentar ListPanel">
+                            <div className="Titulo">Lista Deputados</div>
+                            <br/>
+                            {objetoLista}
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 

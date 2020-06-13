@@ -2,21 +2,30 @@
 @import './../../util/styleUtil.scss';
 
 .Parlamentar {
+    // height:80px;
     padding: 4px;
     text-align: left;
-    // width: 100%;
-    // cursor: pointer;
     &:hover{
         // transition: 1s;
-        background: $corCinza_1;
+        background: $corHoverListagens;
+        // border-radius: 20px;
+        border-radius: 9999px;
     }
     .Nome{
         font-weight: bold;
         font-size: 150%;
     }
+}
 
+.Senador{
     .FotoListagem {
-        border-radius: 50%;
-        @include mix_imagemCortada($corFundoParlam, 80px);
+        @include mix_imagemCortada($corFundoSen, 80px);
     }
+
+}
+.Deputado{
+    .FotoListagem {
+        @include mix_imagemCortada($corFundoDep, 80px);
+    }
+
 }
