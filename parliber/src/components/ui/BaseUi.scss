@@ -1,0 +1,28 @@
+@import './../../util/constantes.scss';
+
+.div-1{
+    min-height: 100px;
+    background: green;
+}
+.div-2{
+    min-height: 100px;
+    background: red;
+}
+
+@media (max-width: $md_size - 1) {
+    .Navbar {
+        display: inline;
+    }
+
+    .TabPanel {
+        display: none;
+        &.TabAtiva{
+            display: inline;
+        }
+    }
+}
+@media only screen and (min-width : $md_size) {
+    .Navbar {
+        display: none;
+    }
+}

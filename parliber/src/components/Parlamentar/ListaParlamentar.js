@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Parlamentar from './Parlamentar/Parlamentar.js';
+import Parlamentar from './Parlamentar.js';
+import ParlamentarDetalhe from './ParlamentarDetalhe';
 
 // import ListGroup from 'react-bootstrap/ListGroup'
-import './Dashboard.scss'
+import './ListaParlamentar.scss'
 
-class Dashboard extends Component{
+class ListaParlamentar extends Component{
 
     state = {
         senadors: [],
-        loading: false
+        loading: false,
+        exibirDetalhe: false,
+        chaveParlamentarSelecionado: null,
     }
 
     componentDidMount () {
@@ -21,15 +24,31 @@ class Dashboard extends Component{
             } );
     }
 
+    setExibirDetalhe = (exibir) => {
+        this.setState( { exibirDetalhe: exibir } );
+
+        console.log('rapaz', this.state.exibirDetalhe);
+    };
+
+    exibirDetalhe = (chave) => {
+        this.setExibirDetalhe(true);
+
+        this.setState( { chaveParlamentarSelecionado: chave } );
+    }
+
     render () {
 
         return(
             <div>
-                <h3>Dashboard</h3>
-                <section className="ListaParlamentars">
+                <h3>ListaParlamentar</h3>
+                <ParlamentarDetalhe 
+                    show={this.state.exibirDetalhe} 
+                    onHide={() => this.setExibirDetalhe(false)}
+                    CodigoParlamentar={this.state.chaveParlamentarSelecionado}/>
+                <section className="ListaParlamentar">
                     {this.state.senadors.map(parlamentar => {
                         return (
-                            <Parlamentar 
+                            <Parlamentar  clickHandler={() => this.exibirDetalhe(parlamentar.IdentificacaoParlamentar.CodigoParlamentar)}
                                 key={parlamentar.IdentificacaoParlamentar.CodigoParlamentar} 
                                 nome={parlamentar.IdentificacaoParlamentar.NomeParlamentar} 
                                 partido={parlamentar.IdentificacaoParlamentar.SiglaPartidoParlamentar}
@@ -45,4 +64,4 @@ class Dashboard extends Component{
 
 }
 
-export default Dashboard;
+export default ListaParlamentar;

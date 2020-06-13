@@ -1,10 +1,14 @@
 .Parlamentar {
-    padding: 16px;
+    padding: 4px;
     text-align: left;
     // width: 100%;
     // cursor: pointer;
     &:hover{
         background-color: rgb(232, 237, 250);
+    }
+    .Nome{
+        font-weight: bold;
+        font-size: 150%;
     }
 }
 
