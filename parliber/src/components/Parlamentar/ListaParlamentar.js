@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Parlamentar from './Parlamentar.js';
 import ParlamentarDetalhe from './ParlamentarDetalhe';
+import Loader from './../ui/loader/Loader';
 
 // import ListGroup from 'react-bootstrap/ListGroup'
 import './ListaParlamentar.scss'
@@ -10,16 +11,19 @@ class ListaParlamentar extends Component{
 
     state = {
         senadors: [],
-        loading: false,
+        carregando: false,
         exibirDetalhe: false,
         chaveParlamentarSelecionado: null,
     }
 
     componentDidMount () {
+        this.setState( { carregando: true } );
+
         axios.get( 'http://legis.senado.leg.br/dadosabertos/senador/lista/atual.json' )
             .then( response => {
                 this.setState( { senadors: response.data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar } );
 
+                this.setState( { carregando: false } );
                 console.log('vish mainha', this.state.senadors);
             } );
     }
@@ -37,14 +41,11 @@ class ListaParlamentar extends Component{
     }
 
     render () {
-
-        return(
-            <div>
-                <h3>ListaParlamentar</h3>
-                <ParlamentarDetalhe 
-                    show={this.state.exibirDetalhe} 
-                    onHide={() => this.setExibirDetalhe(false)}
-                    CodigoParlamentar={this.state.chaveParlamentarSelecionado}/>
+        let objetoLista = null;
+        if(this.state.carregando){
+            objetoLista = <Loader/>;
+        } else {
+            objetoLista = (
                 <section className="ListaParlamentar">
                     {this.state.senadors.map(parlamentar => {
                         return (
@@ -58,6 +59,18 @@ class ListaParlamentar extends Component{
                         )
                     })}
                 </section>
+            );
+        }
+
+        return(
+            <div>
+                <h3>Lista Senadores</h3>
+                <ParlamentarDetalhe 
+                    show={this.state.exibirDetalhe} 
+                    onHide={() => this.setExibirDetalhe(false)}
+                    CodigoParlamentar={this.state.chaveParlamentarSelecionado}/>
+                
+                {objetoLista}
             </div>
         )
     }

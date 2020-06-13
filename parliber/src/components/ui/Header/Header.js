@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -23,9 +23,27 @@ const toolbar = ( props ) => (
             </Navbar.Brand>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link eventKey="1" href="#home">Home</Nav.Link>
-                    <Nav.Link eventKey="2" href="#link">Link</Nav.Link>
+                    <Nav.Item eventkey={1}>
+                        <Nav.Link as={Link} to="/senadores">Senadores</Nav.Link> 
+                    </Nav.Item>
+                    <Nav.Item eventkey={2}>
+                        <Nav.Link as={Link} to="/deputados">Deputados</Nav.Link>
+                    </Nav.Item>
+                
+                    {/* <Nav.Item eventKey="1">
+                        <NavLink
+                            to="/senadores/"
+                            exact
+                            activeClassName="ActiveTab"/>
+                    </Nav.Item>
+                    <Nav.Item eventKey="2">
+                        <NavLink 
+                            to="/deputados/"
+                            exact
+                            activeClassName="ActiveTab"/>
+                    </Nav.Item> */}
                 </Nav>
+
             </Navbar.Collapse>
             <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
